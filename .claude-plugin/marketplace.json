@@ -1,0 +1,20 @@
+{
+  "name": "aubrey-public-skills",
+  "version": "0.1.0",
+  "description": "Shareable Claude Code skills, grouped by workflow.",
+  "owner": { "name": "Aubrey Kilian" },
+  "plugins": [
+    {
+      "name": "design-prep",
+      "source": "./",
+      "description": "Technical-prep skills for the design phase of an issue or ticket.",
+      "version": "0.1.0",
+      "author": { "name": "Aubrey Kilian" },
+      "category": "workflow",
+      "keywords": ["design", "review", "adversarial", "architecture", "technical-prep"],
+      "skills": [
+        "./skills/adversarial-architect"
+      ]
+    }
+  ]
+}
