@@ -15,6 +15,18 @@
       "skills": [
         "./skills/adversarial-architect"
       ]
+    },
+    {
+      "name": "engineering",
+      "source": "./",
+      "description": "Implementation skills that build on Matt Pocock's engineering skills.",
+      "version": "0.1.0",
+      "author": { "name": "Aubrey Kilian" },
+      "category": "workflow",
+      "keywords": ["implementation", "issues", "tdd", "code-review", "integration-branch"],
+      "skills": [
+        "./skills/engineering/implement-issues"
+      ]
     }
   ]
 }

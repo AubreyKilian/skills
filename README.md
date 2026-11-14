@@ -7,15 +7,17 @@ Shareable [Claude Code](https://claude.com/claude-code) skills, packaged as a pl
 ```
 /plugin marketplace add AubreyKilian/skills
 /plugin install design-prep@aubrey-public-skills
+/plugin install engineering@aubrey-public-skills
 ```
 
-If your environment does not permit external marketplaces, copy a skill directory from `skills/` into your project's `.claude/skills/` instead — every skill here is self-contained by design.
+If your environment does not permit external marketplaces, copy a skill directory from `skills/` into your project's `.claude/skills/` instead. Every skill here is self-contained, except those in the `engineering` plugin, which call [Matt Pocock's skills](https://github.com/mattpocock/skills).
 
 ## Plugins
 
 | Plugin | Skills | What it does |
 |---|---|---|
 | `design-prep` | `/adversarial-architect` | Technical-prep skills for the design phase of an issue or ticket. |
+| `engineering` | `/implement-issues` | Implementation skills that build on Matt Pocock's engineering skills. |
 
 ## Skills
 
@@ -52,6 +54,18 @@ Two caveats:
 - **This is a hand-maintained entry, not an installed Spec Kit extension.** The `extension: design-prep` field is display-only here. `specify` CLI extension operations may rewrite `extensions.yml`; re-check the entry after running them.
 
 If a surviving objection changes the plan, feed the constraint back as input to a `/speckit-plan` re-run rather than editing `plan.md` — the plan command blank-slates its file from the template on every run, so hand-edits do not survive regeneration. The durable homes for a finding are the work item (issue or ticket comment) and your decision records.
+
+### `/implement-issues`
+
+Implements an ordered list of separately written issues, one after another, on a single integration branch. Each issue gets a fresh implementer subagent in its own worktree, a code review on its own branch, and lands as one squash commit, so a human can review each issue in isolation. At the end it marks one PR ready for review, closing every landed issue.
+
+A sequential variant of Matt Pocock's `/implement-spec`, for issues that are not tickets of one spec. It never reorders the list. An issue that fails, or whose seams cannot be inferred from its acceptance criteria, is skipped together with the issues it blocks, and the run continues.
+
+Requires the [`mattpocock-skills`](https://github.com/mattpocock/skills) plugin (`tdd`, `code-review`, `pr`) and a tracker configured with `/setup-matt-pocock-skills`. User-invoked only:
+
+```
+/implement-issues #12 #15 #9
+```
 
 ## Recipes
 
