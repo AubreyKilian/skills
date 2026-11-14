@@ -52,3 +52,11 @@ Two caveats:
 - **This is a hand-maintained entry, not an installed Spec Kit extension.** The `extension: design-prep` field is display-only here. `specify` CLI extension operations may rewrite `extensions.yml`; re-check the entry after running them.
 
 If a surviving objection changes the plan, feed the constraint back as input to a `/speckit-plan` re-run rather than editing `plan.md` — the plan command blank-slates its file from the template on every run, so hand-edits do not survive regeneration. The durable homes for a finding are the work item (issue or ticket comment) and your decision records.
+
+## Recipes
+
+Recipes are setup guides written for a Claude Code session to follow, with example code. They are not plugins: each one changes your own config (hooks, status line, settings), so Claude adapts it to your setup instead of installing a fixed copy. To use one, give Claude the link and ask it to set it up.
+
+| Recipe | What it does |
+|---|---|
+| [`usage-gate`](recipes/usage-gate/README.md) | Blocks subagent spawns when your 5-hour or 7-day usage passes a threshold, then pauses the session until the limit resets (including early resets) and carries on. |

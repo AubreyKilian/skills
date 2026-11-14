@@ -1,0 +1,25 @@
+{
+  "env": {
+    "USAGE_GATE_5H": "85",
+    "USAGE_GATE_7D": "95"
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Agent|Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$HOME/.claude/hooks/usage-gate.sh",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "$HOME/.claude/statusline.sh",
+    "refreshInterval": 60
+  }
+}
