@@ -1,0 +1,5 @@
+interface:
+  display_name: "Implement Issues"
+  short_description: "Implement an ordered list of separate issues, one after another, each landing as one commit on a single integration branch."
+policy:
+  allow_implicit_invocation: false
